@@ -12,10 +12,10 @@
 		"cookie-parser": "~1.4.3",
 		"debug": "~2.6.3",
 		"express": "^4.17.1",
-		"jade": "~1.11.0",
 		"morgan": "^1.9.1",
 		"mssql": "^4.0.4",
 		"nodemon": "^1.11.0",
+		"pug": "^2.0.4",
 		"serve-favicon": "~2.4.2"
 	},
 	"repository": {
