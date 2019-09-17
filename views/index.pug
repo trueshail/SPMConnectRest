@@ -12,22 +12,20 @@ block Users
           th Name
           th Email
           th Department
-          th ActiveBlockNumber
-          th Admin
-          th Developer
-          th Management
+          th BlockNo
+          th SharesFolder
+          
           th 
       each item in data
         tr
-          td= item.id
+          td= item.id 
           td= item.UserName
           td= item.Name
           td= item.Email
           td= item.Department
-          td= item.ActiveBlockNumber
-          td= item.Admin == "1"? "yes" : "No"         
-          td= item.Developer == "1"? "yes" : "No"     
-          td= item.Management == "1"? "yes" : "No"     
+          td= item.ActiveBlockNumber  
+          td= item.SharesFolder
+          
           td  
             a(href="/users/edit/"+item.id, title="Edit").icon
               i(aria-hidden="true").fa.fa-pencil-square

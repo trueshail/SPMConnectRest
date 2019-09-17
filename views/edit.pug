@@ -3,7 +3,7 @@ extends layout
 block edit
     label UserName： #{data.UserName}
     hr
-    form(method='POST' action='/update')
+    form(method='POST' action='/users/update')
         input(type="hidden" name="id" value=data.id)
         table.list-edit
             tr
@@ -28,7 +28,7 @@ block edit
             tr
                 th Developer
                 td
-                    input(type="checkbox" name="Developer" checked=data.Developer ==1 ? true : false)
+                    input(type="checkbox" name="Developer" checked=data.Developer ==1 ? true : false )
             tr
                 td(colspan="2")
                     button(type="submit").btn Save

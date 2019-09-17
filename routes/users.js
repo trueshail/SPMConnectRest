@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var sql = require('mssql');
-
 var db = require('../config/db');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -9,12 +8,6 @@ router.get('/', function(req, res, next) {
 		if (err) console.log(err);
 
 		var request = new sql.Request();
-
-		// 模糊搜尋用法
-		// const value = 'b'; // 關鍵字
-		// request.input('username', sql.NVarChar(50), '%' + value + '%');
-		// const fuzzySelect = 'select * from UserList where username like @username';
-
 		request.query('select * from Users', function(err, result) {
 			if (err) {
 				console.log(err);
@@ -27,6 +20,7 @@ router.get('/', function(req, res, next) {
 				route: 'Users',
 				data: result.recordset
 			});
+			res.end();
 		}); // request.query
 	}); // sql.conn
 	//res.send('api users ok.');
@@ -38,19 +32,23 @@ router.post('/update', function(req, res, next) {
 		if (err) console.log(err);
 
 		var request = new sql.Request();
+
 		request
 			.input('id', sql.Int, req.body.id)
-			.input('username', sql.NVarChar(50), req.body.username)
-			.input('pwd', sql.NVarChar(50), req.body.pwd)
-			.input('email', sql.NVarChar(50), req.body.email)
-			.query('update Users set username=@username,pwd=@pwd,email=@email where id=@id', function(err, result) {
-				if (err) {
-					console.log(err);
-					res.send(err);
+			.input('UserName', sql.NVarChar(50), req.body.UserName)
+			.input('Name', sql.NVarChar(50), req.body.Name)
+			.input('Email', sql.NVarChar(50), req.body.Email)
+			.query(
+				'update Users set UserName=@UserName,Name=@Name,Email=@Email ,Developer=@Developer where id=@id',
+				function(err, result) {
+					if (err) {
+						console.log(err);
+						res.send(err);
+					}
+					sql.close();
+					res.redirect('/users');
 				}
-				sql.close();
-				res.redirect('/users');
-			});
+			);
 	});
 });
 
