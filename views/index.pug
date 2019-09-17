@@ -29,7 +29,7 @@ block Users
           td= item.Developer == "1"? "yes" : "No"     
           td= item.Management == "1"? "yes" : "No"     
           td  
-            a(href="/users/edit/#{item.id}", title="Edit").icon
+            a(href="/users/edit/"+item.id, title="Edit").icon
               i(aria-hidden="true").fa.fa-pencil-square
-            a(href="/users/delete/#{item.id}", title="Delete" onclick="return confirm('Delete user： #{item.username} ?');").icon
+            a(href="/users/delete/"+item.id, title="Delete" onclick="return confirm('Delete user： "+item.UserName+" ?');").icon
               i(aria-hidden="true").fa.fa-trash

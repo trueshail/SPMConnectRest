@@ -82,7 +82,6 @@ router.get('/edit/:id/', function(req, res, next) {
 		}); // request.query
 	}); // sql.conn
 });
-
 /* POST Add page. */
 router.post('/add', function(req, res, next) {
 	sql.connect(db, function(err) {
