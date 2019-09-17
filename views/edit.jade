@@ -1,0 +1,35 @@
+extends layout
+
+block edit
+    label UserName： #{data.UserName}
+    hr
+    form(method='POST' action='/update')
+        input(type="hidden" name="id" value=data.id)
+        table.list-edit
+            tr
+                th UserID
+                td=data.id     
+            tr
+                th Name
+                td
+                    input(type="text" name="Name" value=data.Name).text
+            tr
+                th UserName
+                td 
+                    input(type="text" name="UserName" value=data.UserName).text
+            tr
+                th Email
+                td
+                    input(type="email" name="Email" value=data.Email).text
+            tr
+                th Department
+                td
+                    input(type="text" name="Department" value=data.Department).text
+            tr
+                th Developer
+                td
+                    input(type="checkbox" name="Developer" checked=data.Developer ==1 ? true : false)
+            tr
+                td(colspan="2")
+                    button(type="submit").btn Save
+                    button(type="button" onclick="javascript: location.href='/users'; ").btn Back

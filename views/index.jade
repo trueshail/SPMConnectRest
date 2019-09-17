@@ -1,0 +1,35 @@
+extends layout
+
+block Users
+    label Total： #{data.length}
+    hr
+    a(href="/users/add", title="title").btn Add 
+    table.list
+      thead
+        tr
+          th UserID
+          th UserName
+          th Name
+          th Email
+          th Department
+          th ActiveBlockNumber
+          th Admin
+          th Developer
+          th Management
+          th 
+      each item in data
+        tr
+          td= item.id
+          td= item.UserName
+          td= item.Name
+          td= item.Email
+          td= item.Department
+          td= item.ActiveBlockNumber
+          td= item.Admin == "1"? "yes" : "No"         
+          td= item.Developer == "1"? "yes" : "No"     
+          td= item.Management == "1"? "yes" : "No"     
+          td  
+            a(href="/users/edit/#{item.id}", title="Edit").icon
+              i(aria-hidden="true").fa.fa-pencil-square
+            a(href="/users/delete/#{item.id}", title="Delete" onclick="return confirm('Delete user： #{item.username} ?');").icon
+              i(aria-hidden="true").fa.fa-trash
