@@ -11,29 +11,6 @@ router.get('/', function(req, res, next) {
 	res.render('connect', {
 		route: 'connect'
 	});
-	// sql.connect(db, function(err) {
-	// 	if (err) console.log(err);
-
-	// 	var request = new sql.Request();
-
-	// 	// 模糊搜尋用法
-	// 	// const value = 'b'; // 關鍵字
-	// 	// request.input('username', sql.NVarChar(50), '%' + value + '%');
-	// 	// const fuzzySelect = 'select * from UserList where username like @username';
-
-	// 	request.query('select * from UserList', function(err, result) {
-	// 		if (err) {
-	// 			console.log(err);
-	// 			res.send(err);
-	// 		}
-	// 		// var rowsCount = result.rowsAffected;
-	// 		sql.close();
-	// 		res.render('index', {
-	// 			route: 'home',
-	// 			data: result.recordset
-	// 		});
-	// 	}); // request.query
-	// }); // sql.conn
 }); // get /
 
 router.get('/api/users', function(req, res, next) {
