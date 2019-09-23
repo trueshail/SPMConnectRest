@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 		const request = new sql.Request();
 		request.stream = true;
-		request.query('SELECT * FROM [SPM_Database].[dbo].[SPMJobs] ORDER BY Job DESC');
+		request.query('SELECT * FROM [SPM_Database].[dbo].[PurchaseReqBase] ORDER BY ReqNumber DESC');
 
 		let rowCount = 0;
 		const BATCH_SIZE = 50;
@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 			res.write(']');
 			sql.close();
 			res.end();
-			console.log('Done pasrsing all rows for job request');
+			console.log('Done pasrsing all rows for purchase req request');
 		});
 	});
 });
@@ -47,7 +47,10 @@ router.get('/:id', function(req, res, next) {
 
 		var request = new sql.Request();
 		request.input('id', sql.NVarChar, req.params.id);
-		request.query('SELECT * FROM [SPM_Database].[dbo].[SPMJobs] where Job=@id', function(err, result) {
+		request.query('SELECT * FROM [SPM_Database].[dbo].[PurchaseReqBase] where ReqNumber=@id', function(
+			err,
+			result
+		) {
 			if (err) {
 				console.log(err);
 				res.send(err);
@@ -55,7 +58,7 @@ router.get('/:id', function(req, res, next) {
 			sql.close();
 			res.send(result.recordset);
 			res.end();
-			console.log('Completed request for job id: ' + req.params.id);
+			console.log('Completed request for ReqNumber id: ' + req.params.id);
 		}); // request.query
 	}); // sql.conn
 	//res.send('api users ok.');

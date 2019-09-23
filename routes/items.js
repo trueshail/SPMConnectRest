@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 			res.write(']');
 			sql.close();
 			res.end();
-			console.log('Done pasrsing all rows');
+			console.log('Done pasrsing all rows for items');
 		});
 	});
 });
@@ -57,6 +57,8 @@ router.get('/:id', function(req, res, next) {
 			}
 			sql.close();
 			res.send(result.recordset);
+			res.end();
+			console.log('Completed request for item id: ' + req.params.id);
 		}); // request.query
 	}); // sql.conn
 	//res.send('api users ok.');
