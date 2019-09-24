@@ -1,0 +1,57 @@
+extends layout
+
+block info
+    label ItemNumber： #{data.ItemNumber}
+    hr
+    form()
+        input(type="hidden" name="ItemNumber" value=data.ItemNumber)
+        table.list-edit
+            tr
+                th ItemNumber
+                td=data.ItemNumber     
+            tr
+                th Description
+                td
+                    input(type="text" name="Description" value=data.Description).text
+            tr
+                th FamilyCode
+                td 
+                    input(type="text" name="FamilyCode" value=data.FamilyCode).text
+            tr
+                th Manufacturer
+                td
+                    input(type="text" name="Manufacturer" value=data.Manufacturer).text
+            tr
+                th Manufacturer ItemNumber
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.ManufacturerItemNumber).text
+            tr
+                th Designed By
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.DesignedBy).text
+            tr
+                th Date Created
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.DateCreated).text
+            tr
+                th Last Saved By
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.LastSavedBy).text
+            tr
+                th Material
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.Material).text
+            tr
+                th Surface Protection
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.SurfaceProtection).text
+            
+            tr
+                th Heat Treatment
+                td
+                    input(type="text" name="ManufacturerItemNumber" value=data.HeatTreatment).text
+
+            tr
+                td(colspan="2")
+                   
+                    button(type="button" onclick="javascript: location.href='/items'; ").btn Back

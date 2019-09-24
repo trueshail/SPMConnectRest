@@ -6,11 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var items = require('./routes/items');
-var jobs = require('./routes/jobs');
-var wo = require('./routes/workorder');
-var pr = require('./routes/purchasereqs');
+var users = require('./routes/web/users');
+var items = require('./routes/web/items');
+
+var users_api = require('./routes/api/users_api');
+var items_api = require('./routes/api/items_api');
+var jobs_api = require('./routes/api/jobs_api');
+var wo_api = require('./routes/api/workorder_api');
+var pr_api = require('./routes/api/purchasereqs_api');
 
 var app = express();
 
@@ -19,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,10 +31,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/api/items', items);
-app.use('/api/jobs', jobs);
-app.use('/api/wo', wo);
-app.use('/api/pr', pr);
+app.use('/items', items);
+
+app.use('/api/items', items_api);
+app.use('/api/jobs', jobs_api);
+app.use('/api/wo', wo_api);
+app.use('/api/pr', pr_api);
+app.use('/api/users', users_api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

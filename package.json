@@ -17,8 +17,8 @@
 		"morgan": "^1.9.1",
 		"mssql": "^4.0.4",
 		"nodemon": "^1.11.0",
-		"pug": "^2.0.4",
 		"pm2": "^2.4.6",
+		"pug": "^2.0.4",
 		"serve-favicon": "~2.4.2"
 	},
 	"repository": {

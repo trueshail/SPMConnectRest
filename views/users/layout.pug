@@ -6,7 +6,13 @@ html
     link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
 
   body
-    h1 SPM Connect - NodeJS Express With MSSQL
-    hr
-    button(type="button" onclick="javascript: location.href='/users'; ").btn Users    
-    button(type="button" onclick="javascript: location.href='/items'; ").btn Items
+    h1 SPM Connect - #{route}
+
+    case route
+      when 'Users': block Users
+      when 'info': block info
+      when 'error': block error
+      when 'connect': block connect
+      default: block connect
+
+  

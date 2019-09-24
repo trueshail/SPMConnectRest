@@ -1,6 +1,6 @@
 extends layout
 
-block edit
+block info
     label UserName： #{data.UserName}
     hr
     form(method='POST' action='/users/update')
@@ -31,5 +31,5 @@ block edit
                     input(type="checkbox" name="Developer" checked=data.Developer ==1 ? true : false )
             tr
                 td(colspan="2")
-                    button(type="submit").btn Save
+                   
                     button(type="button" onclick="javascript: location.href='/users'; ").btn Back

@@ -58,7 +58,7 @@ a.btn {
 
 .text {
 	padding: 0 4px;
-	width: 240px;
+	width: 500px;
 	height: 30px;
 	color: #405467;
 	font-size: 1em;
@@ -115,7 +115,7 @@ table.list-edit tr:nth-child(odd) td {
 
 table.list-edit th,
 table.list-edit td {
-	height: 30px;
+	height: 50px;
 	min-width: 70px;
 	padding: 5px;
 	font-size: 1.2em;

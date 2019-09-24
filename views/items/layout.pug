@@ -9,9 +9,8 @@ html
     h1 SPM Connect - #{route}
 
     case route
-      when 'Users': block Users
-      when 'edit': block edit
-      when 'add': block add
+      when 'Items': block Items
+      when 'info': block info
       when 'error': block error
       when 'connect': block connect
       default: block connect

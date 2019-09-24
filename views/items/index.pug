@@ -1,0 +1,28 @@
+extends layout
+
+block Items
+    label Total： #{data.length}
+    hr
+ 
+    table.list
+      thead
+        tr
+          th ItemNo
+          th Description
+          th Family
+          th Manufacturer
+          th OEM ItemNo
+          
+          th 
+      each item in data
+        tr
+          td= item.ItemNumber 
+          td= item.Description
+          td= item.FamilyCode
+          td= item.Manufacturer
+          td= item.ManufacturerItemNumber
+          
+          td  
+            a(href="/items/info/"+item.ItemNumber, title="Info").icon
+              i(aria-hidden="true").fa.fa-info
+          
