@@ -10,6 +10,8 @@ var users = require('./routes/web/users');
 var items = require('./routes/web/items');
 
 var users_api = require('./routes/api/users_api');
+var bom_api = require('./routes/api/bom_api');
+var werused_api = require('./routes/api/whereused_api');
 var items_api = require('./routes/api/items_api');
 var jobs_api = require('./routes/api/jobs_api');
 var wo_api = require('./routes/api/workorder_api');
@@ -34,6 +36,8 @@ app.use('/users', users);
 app.use('/items', items);
 
 app.use('/api/items', items_api);
+app.use('/api/bom', bom_api);
+app.use('/api/wu', werused_api);
 app.use('/api/jobs', jobs_api);
 app.use('/api/wo', wo_api);
 app.use('/api/pr', pr_api);
